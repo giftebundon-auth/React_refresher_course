@@ -1,7 +1,3 @@
-
-
-// React before v18
-// React.render(<App/>, document.getElementById("root"))
 import React from "react";
 import ReactDom from "react-dom/client";
 import './index.css'
@@ -73,9 +69,12 @@ function Header(){
 }
 //props in react is used to pass data from parent component to child component
 function Menu(){
+    // const pizzas = []
+    const pizzas = pizzaData
+    const numPizza =  pizzas.length
     return <main className="menu">
             <h2  >Our Menu</h2>
-            <ul className="pizzas">
+            {numPizza > 0 ?  (<ul className="pizzas">
                 {
                     pizzaData.map(pizza=> (
                         <Pizza
@@ -84,13 +83,14 @@ function Menu(){
                         />
                     ) )
                 }
-            </ul>
+            </ul>): <p>We're still working on our menu. Please come back later</p>}
             
     </main>
 }
 
 
 function Pizza(props) {
+    if(props.pizzaObj.soldOut) return null
     return <li className="pizza">
         <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name}  />
         <div>
@@ -101,7 +101,23 @@ function Pizza(props) {
     </li>;
 }
 function Footer(){
-    return <footer className="footer"> {new Date().toLocaleTimeString()}. We're currently open</footer>
+    const hour = new Date().getHours()
+    const openHour = 12
+    const closeHour = 22
+    const isOpen = hour >= openHour && hour <= closeHour
+
+    // if(!isOpen){
+    //     return (
+    //         <p>We are happy to welcome you between {openHour}:00 and {closeHour}:00</p>
+    //     )
+    // }
+    return <footer className="footer"> 
+    <div className="order">
+    {isOpen ? (<p>We're open until {closeHour}:00. Come visit us or order online</p>
+    ): <p>We are happy to welcome you between {openHour}:00 and {closeHour}:00</p>}
+    <button className="btn">Order</button>
+    </div>
+    </footer>
 }
 
 
@@ -112,6 +128,3 @@ root.render(
         <App />
     </React.StrictMode>
 );
-
-// React before v18
-// React.render(<App/>, document.getElementById("root"))
