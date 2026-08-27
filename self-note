@@ -1,0 +1,9 @@
+Component is a self contain piece of the user interface which includes its own data, its javascript logic and its own appearance. this appearance is written using a declarative syntax called jsx. Each component ultimately return a block of jsx
+jsx can some mock up in the form of html , css and javascript logic inside curly braces
+
+
+Parent component can pass data into a direct child component using props
+props can only be passed down a tree. from parent to child , not the other way round
+
+components can be conditionally rendered using the AND operator, ternary operator or multiple returns
+summary from video 54
