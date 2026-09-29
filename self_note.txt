@@ -1,0 +1,83 @@
+npx create-react-app@5 date_counter_challenge
+
+
+Component is a self contain piece of the user interface which includes its own data, its javascript logic and its own appearance. this appearance is written using a declarative syntax called jsx. Each component ultimately return a block of jsx
+jsx can some mock up in the form of html , css and javascript logic inside curly braces
+
+
+Parent component can pass data into a direct child component using props
+props can only be passed down a tree. from parent to child , not the other way round
+
+components can be conditionally rendered using the AND operator, ternary operator or multiple returns
+summary from video 54;
+
+
+
+summary from video 59 -  state in react
+state -  component's memory
+=> updating  component state triggers React to re-render the component
+ie it triggers anew updated view of the component
+
+State Allows Developers to:
+1. Update the component's view by  re-rendering the component
+2. persist local variables between two renders
+
+
+Summary from video 60
+ All react functions that start with 'use' hooks 
+
+Hooks are called on the top level of the component , not inside the component function or if statement or inside a loop or inside another function
+State should only be updated using the state setter function, not manually
+
+
+Summary from video 62
+In react , we do not manipulate the DOM directly when we want to update a component's view. React is declarative, not imperative
+
+When a component state is updated, React re-renders the component which then updates the component's view
+
+As a React developer, to update a component's view, we update the state
+
+
+Summary from video 66
+Each component has and manages its own state 
+React app is all about changing state overtime and correctly displaying the state all the time
+
+
+
+
+Summary from video 73
+the techniques of controlled elements basically consists of 3 steps
+1. define a piece of state
+2. then use the piece of state on the element we want to control. this forces the element to always take the value of the react state
+3. Finally update the state variable. the onchange function set the state to the current value of the form element (input, select) 
+4. Controlled element allows react to keep the component state in sync with state of the DOM form element
+
+
+Summary from Video 74
+1. State is internal data. Data owned by the component in which it is declared
+2 props is external data, data that is owned by the parent component
+3. props similar to function parameters
+4. State known as the component memory, can be updated by the component itself
+5. Updating state causes component to re-render. This mechanism makes component interactive
+6. props are read-only
+7. Receiving new props causes component to re-render. Usually when parent's state has been updated, the child component then receives it as a new/updated props
+8. In conclusion, whenever a piece of state is passed as a prop, both the parent and child components re-renders
+9. States are used to make component interactive while props are used by parent component to configure child component
+
+
+Summary from video 79 (State management)
+State management is deciding when we need to create new piece of state, what type of state we need, where to place each piece of state inside our codebase and also how all the data should flow through the app. 
+In summary, state management is basically giving each piece of state a home within our codebase
+
+
+
+=> In react, each piece of state is either a global or local state.
+=> Local state is a state needed by one or few components
+=> Local state is a state that is defined in a component and only that component and child components have access to it (by passing via props)
+=> Global State is a state that many component might need
+=> Global state is a shared state that is accessible to every component in the entire application
+=> Global state can be defined using React Context API or an external global  state management library like REDUX
+
+
+Summary From Video 80
+=> whenever multiple sibling components need access to the same state, we move that piece of state to the first common parent component. This is called lifting state
